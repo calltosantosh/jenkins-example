@@ -7,7 +7,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_8_6') {
+                withMaven(maven : 'maven3.8.6') {
                     sh 'mvn clean compile'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_8_6') {
+                withMaven(maven : 'maven3.8.6') {
                     sh 'mvn test'
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_8_6') {
+                withMaven(maven : 'maven3.8.6') {
                     echo "Deployment Successful"
                     sh 'mvn deploy'
                 }
