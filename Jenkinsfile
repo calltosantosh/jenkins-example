@@ -1,13 +1,13 @@
 pipeline {
     agent any
      tools { 
-         maven 'maven-3.5.4'  
+         maven 'maven-3.8.6'  
     }
     stages {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_6_3') {
+                withMaven(maven : 'maven_3_8_6') {
                     sh 'mvn clean compile'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_6_3') {
+                withMaven(maven : 'maven_3_8_6') {
                     sh 'mvn test'
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_6_3') {
+                withMaven(maven : 'maven_3_8_6') {
                     echo "Deployment Successful"
                     sh 'mvn deploy'
                 }
